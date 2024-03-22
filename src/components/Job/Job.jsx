@@ -12,7 +12,7 @@ const Job = ({ job }) => {
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
-        <img className="w-[200px] h-[100px]" src={logo} alt="Shoes" />
+        <img className="w-[200px] h-[100px] py-4" src={logo} alt="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-[#474747] font-extrabold text-2xl">{job_title}</h2>
