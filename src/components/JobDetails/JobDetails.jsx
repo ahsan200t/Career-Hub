@@ -1,9 +1,17 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveJobApplication } from "../../utility/localStorage";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
   const job = jobs.find((job) => job.id == id);
+
+  const handleApplyJob = () => {
+   saveJobApplication(id);
+    toast('Congrats!!!You Have Applied Successfully.')
+  };
 
   return (
     <div>
@@ -16,7 +24,7 @@ const JobDetails = () => {
             <span className="font-extrabold text-[#1A1919]">
               Job description:
             </span>
-             {job.job_description}
+            {job.job_description}
           </p>
           <p className="mb-6 text-[#757575]">
             <span className="font-extrabold text-[#1A1919]">
@@ -151,9 +159,23 @@ const JobDetails = () => {
                 />
               </svg>
             </p>
-            <h1 className="text-xl text-[#757575]"><span className="font-bold">Address: </span>{job.contact_information.address}</h1>
+            <h1 className="text-xl text-[#757575]">
+              <span className="font-bold">Address: </span>
+              {job.contact_information.address}
+            </h1>
+          </div>
+          <div>
+            <button
+              onClick={handleApplyJob}
+              className="btn w-full bg-[#7E90FE] text-white font-bold text-xl"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
+      </div>
+      <div>
+        <ToastContainer />
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const FeaturedJob = () => {
           need. Its your future.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="md:grid grid-cols-2 gap-6">
         {jobs.slice(0, dataLength).map((job) => (
           <Job key={jobs.id} job={job}></Job>
         ))}
