@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const Job = ({ job }) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -71,7 +74,9 @@ const Job = ({ job }) => {
           </div>
         </div>
         <div className="card-actions">
-          <button className="btn bg-[#7E90FE] text-white font-extrabold text-xl">View Details</button>
+         <Link to={`/job/${id}`}>
+         <button className="btn bg-[#7E90FE] text-white font-extrabold text-xl">View Details</button>
+         </Link>
         </div>
       </div>
     </div>
